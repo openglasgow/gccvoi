@@ -1,7 +1,7 @@
 azure-functions
+mssql-python
 pandas
 requests
 geopandas
 sqlalchemy
 shapely
-mssql-python
