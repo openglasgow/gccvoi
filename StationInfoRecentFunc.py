@@ -23,16 +23,16 @@ PASSWORD = os.getenv("PASSWORD")
 
 
 connection_string = (
-    f"DRIVER={DRIVER};"
+    #f"DRIVER={DRIVER};"
     f"SERVER={SERVER};"
     f"DATABASE={INITIAL_CATALOG};"
-    "Persist Security Info=False;"
+    #"Persist Security Info=False;"
     f"UID={USER_ID};"
     f"PWD={PASSWORD};"
-    "MultipleActiveResultSets=False;"
+    #"MultipleActiveResultSets=False;"
     "Encrypt=yes;"
-    "TrustServerCertificate=no;"
-    "Connection Timeout=30;"
+    #"TrustServerCertificate=no;"
+    #"Connection Timeout=30;"
 )
 
 connect = connect(connection_string)
