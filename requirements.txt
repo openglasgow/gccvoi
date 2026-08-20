@@ -1,0 +1,11 @@
+azure-functions
+unixodbc
+msodbcsql18 
+mssql-tools18
+pyodbc
+pandas
+requests
+geopandas
+sqlalchemy
+shapely
+python-dotenv

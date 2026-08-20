@@ -1,0 +1,10 @@
+
+
+TOKEN_URL=https://api.voiapp.io/v1/partner-apis/token
+VEHICLE_STATUS_URL=https://api.voiapp.io/v1/partner-apis/gbfs/397/vehicle_status.json
+STATION_INFO_URL=https://api.voiapp.io/v1/partner-apis/gbfs/397/station_information.json
+STATION_STATUS_URL=https://api.voiapp.io/v1/partner-apis/gbfs/397/station_status.json
+TRIPS_URL=https://api.voiapp.io/v1/partner-apis/mds/397/trips
+EVENTS_RECENT_BASE_URL=https://api.voiapp.io/v1/partner-apis/mds/397/events/recent
+EVENTS_HISTORICAL_URL=https://api.voiapp.io/v1/partner-apis/mds/397/events/historical
+GEOFENCE_URL=https://api.voiapp.io/v1/partner-apis/gbfs/397/geofencing_zones.json
