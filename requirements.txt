@@ -4,5 +4,4 @@ requests
 geopandas
 sqlalchemy
 shapely
-python-dotenv
 mssql-python
