@@ -5,4 +5,4 @@ geopandas
 sqlalchemy
 shapely
 python-dotenv
-pyodbc
+mssql-python
