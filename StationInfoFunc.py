@@ -1,6 +1,6 @@
 ### Station info - Function 
 
-from mssql_python import connect
+import mssql_python
 import os
 import requests
 import pandas as pd
@@ -23,16 +23,16 @@ PASSWORD = os.getenv("PASSWORD")
 
 
 connection_string = (
-    f"DRIVER={DRIVER};"
+    #f"DRIVER={DRIVER};"
     f"SERVER={SERVER};"
     f"DATABASE={INITIAL_CATALOG};"
-    "Persist Security Info=False;"
+    #"Persist Security Info=False;"
     f"UID={USER_ID};"
     f"PWD={PASSWORD};"
-    "MultipleActiveResultSets=False;"
+    #"MultipleActiveResultSets=False;"
     "Encrypt=yes;"
-    "TrustServerCertificate=no;"
-    "Connection Timeout=30;"
+    #"TrustServerCertificate=no;"
+    #"Connection Timeout=30;"
 )
 
 
@@ -97,7 +97,7 @@ def get_station_information(station_info_url: str,
 
     return df
 
-#connect = connect(connection_string)
+#connect = mssql_python.connect(connection_string)
 #with connect as connect:
     #connect.execute(""" DROP TABLE station_information""")
 
@@ -112,7 +112,7 @@ def run_station_information():
 
     #station_info_df.to_csv('station_info.csv')
 
-    connect = connect(connection_string)
+    connect = mssql_python.connect(connection_string)
 
     cursor = connect.cursor()
 
@@ -140,7 +140,7 @@ def run_station_information():
 
         connect.commit()     
     
-    connect = connect(connection_string)
+    connect = mssql_python.connect(connection_string)
     
     cursor = connect.cursor()
 

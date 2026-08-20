@@ -1,6 +1,6 @@
 ### Station info - Function 
 
-#from mssql_python import connect
+#import mssql_python
 import mssql_python
 import os
 import requests
@@ -97,7 +97,7 @@ def get_station_information_recent(station_info_url: str,
 
     return df
 
-##connect = connect(connection_string)
+##connect = mssql_python.connect(connection_string)
 #with connect as connect:
     #connect.execute(""" DROP TABLE station_information""")
 
@@ -147,7 +147,7 @@ def run_station_information_recent():
 
         connect.commit()     
     
-    #connect = connect(connection_string)
+    connect = mssql_python.connect(connection_string)
     
     cursor = connect.cursor()
 

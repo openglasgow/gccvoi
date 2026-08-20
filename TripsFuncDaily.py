@@ -1,5 +1,5 @@
 import os
-from mssql_python import connect
+import mssql_python
 import requests
 import pandas as pd
 from datetime import datetime, timedelta
@@ -27,16 +27,16 @@ PASSWORD = os.getenv("PASSWORD")
 
 
 connection_string = (
-    f"DRIVER={DRIVER};"
+    #f"DRIVER={DRIVER};"
     f"SERVER={SERVER};"
     f"DATABASE={INITIAL_CATALOG};"
-    "Persist Security Info=False;"
+    #"Persist Security Info=False;"
     f"UID={USER_ID};"
     f"PWD={PASSWORD};"
-    "MultipleActiveResultSets=False;"
+    #"MultipleActiveResultSets=False;"
     "Encrypt=yes;"
-    "TrustServerCertificate=no;"
-    "Connection Timeout=30;"
+    #"TrustServerCertificate=no;"
+    #"Connection Timeout=30;"
 )
 
 def get_access_token(token_url: str,
@@ -238,7 +238,7 @@ def get_trips_daily(trips_url: str,
     return trips_df
 
 ## Code to drop table if needed
-#connect = connect(connection_string)
+#connect = mssql_python.connect(connection_string)
 #with connect as connect:
     #connect.execute(""" DROP TABLE trips""")
 
@@ -439,7 +439,7 @@ def run_trips_daily():
 
     print('Data Queried - beginning SQL')
 
-    connect = connect(connection_string)
+    connect = mssql_python.connect(connection_string)
         
     cursor = connect.cursor()
     
@@ -477,7 +477,7 @@ def run_trips_daily():
     
     connect.commit()
 
-    connect = connect(connection_string)
+    connect = mssql_python.connect(connection_string)
     
     cursor = connect.cursor()
 
