@@ -12,7 +12,7 @@ from EventsHistoricalFunc import run_events_historical
 from GeofenceFunc import run_geofence
 # HTTP Packages
 import pandas as pd
-import pyodbc
+import mssql-python
 import os
 
 from dotenv import load_dotenv

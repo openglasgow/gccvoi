@@ -1,6 +1,6 @@
 ### Station info - Function 
 
-import pyodbc
+import mssql-python
 import os
 import requests
 import pandas as pd
@@ -97,7 +97,7 @@ def get_station_information_recent(station_info_url: str,
 
     return df
 
-#connect = pyodbc.connect(connection_string)
+#connect = mssql-python.connect(connection_string)
 #with connect as connect:
     #connect.execute(""" DROP TABLE station_information""")
 
@@ -110,7 +110,7 @@ def run_station_information_recent():
     
     print('Data Queried')
 
-    connect = pyodbc.connect(connection_string)
+    connect = mssql-python.connect(connection_string)
 
     cursor = connect.cursor()
 
@@ -147,7 +147,7 @@ def run_station_information_recent():
 
         connect.commit()     
     
-    connect = pyodbc.connect(connection_string)
+    connect = mssql-python.connect(connection_string)
     
     cursor = connect.cursor()
 

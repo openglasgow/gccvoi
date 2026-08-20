@@ -1,4 +1,4 @@
-import pyodbc
+import mssql-python
 import os
 import requests
 import pandas as pd
@@ -277,13 +277,13 @@ def run_events_historical():
     #print(events_historical_df)
     #print(events_historical_joined.index.is_unique)
 
-    #connect = pyodbc.connect(connection_string)
+    #connect = mssql-python.connect(connection_string)
     #with connect as connect:
         #connect.execute(""" DROP TABLE events_historical""")
 
     #events_historical_df.to_csv("events_historical.csv", index= False)     
 
-    connect = pyodbc.connect(connection_string)
+    connect = mssql-python.connect(connection_string)
     
     cursor = connect.cursor()
 
@@ -314,7 +314,7 @@ def run_events_historical():
 
         connect.commit()
 
-    connect = pyodbc.connect(connection_string)
+    connect = mssql-python.connect(connection_string)
     
     cursor = connect.cursor()
 

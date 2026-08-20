@@ -1,6 +1,6 @@
 ### Station info - Function 
 
-import pyodbc
+import mssql-python
 import os
 import requests
 import pandas as pd
@@ -97,7 +97,7 @@ def get_station_information(station_info_url: str,
 
     return df
 
-#connect = pyodbc.connect(connection_string)
+#connect = mssql-python.connect(connection_string)
 #with connect as connect:
     #connect.execute(""" DROP TABLE station_information""")
 
@@ -112,7 +112,7 @@ def run_station_information():
 
     #station_info_df.to_csv('station_info.csv')
 
-    connect = pyodbc.connect(connection_string)
+    connect = mssql-python.connect(connection_string)
 
     cursor = connect.cursor()
 
@@ -140,7 +140,7 @@ def run_station_information():
 
         connect.commit()     
     
-    connect = pyodbc.connect(connection_string)
+    connect = mssql-python.connect(connection_string)
     
     cursor = connect.cursor()
 

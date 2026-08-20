@@ -1,4 +1,4 @@
-import pyodbc
+import mssql-python
 import os
 import requests
 import pandas as pd
@@ -100,7 +100,7 @@ def get_vehicle_status(vehicle_status_url: str,
 
 
 
-#connect = pyodbc.connect(connection_string)
+#connect = mssql-python.connect(connection_string)
 #with connect as connect:
     #connect.execute(""" DROP TABLE vehicle_status""")
 
@@ -115,7 +115,7 @@ def run_vehicle_status():
     
     #vehicle_status_df.to_csv('vehicle_status.csv')
     
-    connect = pyodbc.connect(connection_string)
+    connect = mssql-python.connect(connection_string)
 
     cursor = connect.cursor()
 
@@ -150,7 +150,7 @@ def run_vehicle_status():
 
     connect.commit()     
     
-    connect = pyodbc.connect(connection_string)
+    connect = mssql-python.connect(connection_string)
     
     cursor = connect.cursor()
 

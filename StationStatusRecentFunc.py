@@ -1,4 +1,4 @@
-import pyodbc
+import mssql-python
 import os
 import requests
 import pandas as pd
@@ -86,7 +86,7 @@ def get_station_status_recent(station_status_url: str,
 
     return df
 
-#connect = pyodbc.connect(connection_string)
+#connect = mssql-python.connect(connection_string)
 #with connect as connect:
     #connect.execute(""" DROP TABLE station_status""")
 
@@ -98,7 +98,7 @@ def run_station_status_recent():
     access_token=token
 )
 
-    connect = pyodbc.connect(connection_string)
+    connect = mssql-python.connect(connection_string)
     
     cursor = connect.cursor()
 
@@ -140,7 +140,7 @@ def run_station_status_recent():
 
         connect.commit()    
     
-    connect = pyodbc.connect(connection_string)
+    connect = mssql-python.connect(connection_string)
     
     cursor = connect.cursor()
 
