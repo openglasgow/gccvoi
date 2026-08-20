@@ -103,6 +103,8 @@ def get_events_recent(events_recent_url: str,
 
     return events_recent_df
 
+''' this is running at startup every time and throwing an error
+
 end_time = datetime.now().replace(minute=0, second=0, microsecond=0)
 start_time = end_time + timedelta(hours=-1)
 
@@ -117,6 +119,8 @@ EVENTS_RECENT_URL = (
 connect = mssql_python.connect(connection_string)
 with connect as connect:
     connect.execute(""" DROP TABLE events_recent""")
+'''
+
 
 def run_events_recent():
 
