@@ -35,6 +35,7 @@ connection_string = (
     "Connection Timeout=30;"
 )
 
+#connect = connect(connection_string)
 
 
 def get_access_token(token_url: str,
@@ -97,7 +98,7 @@ def get_station_information_recent(station_info_url: str,
 
     return df
 
-#connect = connect(connection_string)
+##connect = connect(connection_string)
 #with connect as connect:
     #connect.execute(""" DROP TABLE station_information""")
 
@@ -110,7 +111,7 @@ def run_station_information_recent():
     
     print('Data Queried')
 
-    connect = connect(connection_string)
+    #connect = connect(connection_string)
 
     cursor = connect.cursor()
 
@@ -147,7 +148,7 @@ def run_station_information_recent():
 
         connect.commit()     
     
-    connect = connect(connection_string)
+    #connect = connect(connection_string)
     
     cursor = connect.cursor()
 
