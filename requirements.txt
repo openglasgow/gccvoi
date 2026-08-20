@@ -1,4 +1,5 @@
 azure-functions
+python-dotenv
 mssql-python
 pandas
 requests
