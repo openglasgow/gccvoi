@@ -1,8 +1,8 @@
 azure-functions
-python-dotenv
-#mssql-python
 pandas
 requests
 geopandas
 sqlalchemy
 shapely
+mssql-python
+python-dotenv
