@@ -1,6 +1,6 @@
 azure-functions
 python-dotenv
-mssql-python
+#mssql-python
 pandas
 requests
 geopandas
