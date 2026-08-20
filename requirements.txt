@@ -1,8 +1,8 @@
 azure-functions
-pyodbc
 pandas
 requests
 geopandas
 sqlalchemy
 shapely
 python-dotenv
+pyodbc
