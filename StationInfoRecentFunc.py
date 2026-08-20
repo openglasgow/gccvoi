@@ -35,7 +35,7 @@ connection_string = (
     "Connection Timeout=30;"
 )
 
-#connect = connect(connection_string)
+connect = connect(connection_string)
 
 
 def get_access_token(token_url: str,
