@@ -1,6 +1,7 @@
 ### Station info - Function 
 
-from mssql_python import connect
+#from mssql_python import connect
+import mssql_python
 import os
 import requests
 import pandas as pd
@@ -34,8 +35,6 @@ connection_string = (
     #"TrustServerCertificate=no;"
     #"Connection Timeout=30;"
 )
-
-connect = connect(connection_string)
 
 
 def get_access_token(token_url: str,
@@ -111,7 +110,7 @@ def run_station_information_recent():
     
     print('Data Queried')
 
-    #connect = connect(connection_string)
+    connect = mssql_python.connect(connection_string)
 
     cursor = connect.cursor()
 
