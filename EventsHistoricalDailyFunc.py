@@ -278,13 +278,13 @@ def run_events_historical_daily():
     #print(events_historical_df)
     #print(events_historical_joined.index.is_unique)
 
-    #connect = mssql-python.connect(connection_string)
+    #connect = mssql_python.connect(connection_string)
     #with connect as connect:
         #connect.execute(""" DROP TABLE events_historical""")
 
     #events_historical_df.to_csv("events_historical_daily.csv", index= False)     
 
-    connect = mssql-python.connect(connection_string)
+    connect = mssql_python.connect(connection_string)
     
     cursor = connect.cursor()
 
@@ -315,7 +315,7 @@ def run_events_historical_daily():
 
         connect.commit()
 
-    connect = mssql-python.connect(connection_string)
+    connect = mssql_python.connect(connection_string)
     
     #cursor = connect.cursor()
 

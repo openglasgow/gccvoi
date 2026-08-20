@@ -113,7 +113,7 @@ EVENTS_RECENT_URL = (
     f"?start_time={start_time}&end_time={end_time}"
 )
 
-connect = mssql-python.connect(connection_string)
+connect = mssql_python.connect(connection_string)
 with connect as connect:
     connect.execute(""" DROP TABLE events_recent""")
 
@@ -126,7 +126,7 @@ def run_events_recent():
     access_token=token)
 
     
-    connect = mssql-python.connect(connection_string)
+    connect = mssql_python.connect(connection_string)
     
     cursor = connect.cursor()
 
@@ -165,7 +165,7 @@ def run_events_recent():
 
         connect.commit()
 
-    connect = mssql-python.connect(connection_string)
+    connect = mssql_python.connect(connection_string)
     
     cursor = connect.cursor()
 

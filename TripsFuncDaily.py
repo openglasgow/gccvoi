@@ -238,7 +238,7 @@ def get_trips_daily(trips_url: str,
     return trips_df
 
 ## Code to drop table if needed
-#connect = mssql-python.connect(connection_string)
+#connect = mssql_python.connect(connection_string)
 #with connect as connect:
     #connect.execute(""" DROP TABLE trips""")
 
@@ -439,7 +439,7 @@ def run_trips_daily():
 
     print('Data Queried - beginning SQL')
 
-    connect = mssql-python.connect(connection_string)
+    connect = mssql_python.connect(connection_string)
         
     cursor = connect.cursor()
     
@@ -477,7 +477,7 @@ def run_trips_daily():
     
     connect.commit()
 
-    connect = mssql-python.connect(connection_string)
+    connect = mssql_python.connect(connection_string)
     
     cursor = connect.cursor()
 
