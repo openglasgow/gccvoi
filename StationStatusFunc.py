@@ -86,7 +86,7 @@ def get_station_status(station_status_url: str,
 
     return df
 
-#connect = mssql_python.connect(connection_string)
+#connect = connect(connection_string)
 #with connect as connect:
     #connect.execute(""" DROP TABLE station_status""")
 
@@ -100,7 +100,7 @@ def run_station_status():
     
     #station_status_df.to_csv('station_status.csv')
 
-    connect = mssql_python.connect(connection_string)
+    connect = connect(connection_string)
     
     cursor = connect.cursor()
 
@@ -131,7 +131,7 @@ def run_station_status():
 
         connect.commit()    
     
-    connect = mssql_python.connect(connection_string)
+    connect = connect(connection_string)
     
     cursor = connect.cursor()
 
