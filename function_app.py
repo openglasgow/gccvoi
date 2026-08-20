@@ -61,10 +61,11 @@ def Station_status_timer_trigger(myTimer: func.TimerRequest):
 def Station_status_recent_timer_trigger(myTimer: func.TimerRequest):
     run_station_status_recent()
 
-@app.timer_trigger(schedule= "0 0 2 * * *", arg_name= "myTimer", run_on_startup=False, use_monitor=False)
+# this is the same name as the function above so throws an error
+#@app.timer_trigger(schedule= "0 0 2 * * *", arg_name= "myTimer", run_on_startup=False, use_monitor=False)
 
-def Station_status_timer_trigger(myTimer: func.TimerRequest):
-    run_station_status()    
+#def Station_status_timer_trigger(myTimer: func.TimerRequest):
+#    run_station_status()    
 
 @app.timer_trigger(schedule="0 0 2 * * *", arg_name="myTimer", run_on_startup=False, use_monitor=False)
 
