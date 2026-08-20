@@ -1,5 +1,5 @@
 import os
-import mssql-python
+from mssql_python import connect
 import requests
 import pandas as pd
 from datetime import datetime, timedelta

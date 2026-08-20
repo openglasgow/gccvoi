@@ -1,6 +1,6 @@
 ### Station info - Function 
 
-import mssql-python
+from mssql_python import connect
 import os
 import requests
 import pandas as pd
