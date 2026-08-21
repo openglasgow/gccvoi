@@ -168,10 +168,10 @@ def run_events_recent():
         event_types,
         provider_id,
         timestamp,
+        trip_ids,
         vehicle_state,
         lat,
-        lon,
-        trip_ids
+        lon
     )
     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     """
