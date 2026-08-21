@@ -18,25 +18,18 @@ TRIPS_URL = os.getenv("TRIPS_URL")
 GEOFENCE_URL = os.getenv("GEOFENCE_URL")
 API_KEY = os.getenv("API_KEY")
 DATABASE_URL = os.getenv("DATABASE_URL")
-DRIVER = os.getenv("DRIVER")
 SERVER = os.getenv("SERVER")
 INITIAL_CATALOG = os.getenv("INITIAL_CATALOG")
 USER_ID = os.getenv("USER_ID")
 PASSWORD = os.getenv("PASSWORD")
 
 
-
 connection_string = (
-    #f"DRIVER={DRIVER};"
     f"SERVER={SERVER};"
     f"DATABASE={INITIAL_CATALOG};"
-    #"Persist Security Info=False;"
     f"UID={USER_ID};"
     f"PWD={PASSWORD};"
-    #"MultipleActiveResultSets=False;"
     "Encrypt=yes;"
-    #"TrustServerCertificate=no;"
-    #"Connection Timeout=30;"
 )
 
 def get_access_token(token_url: str,
@@ -237,7 +230,7 @@ def get_trips(trips_url: str,
     return trips_df
 
 ## Code to drop table if needed
-#connect = mssql_python.connect(connection_string)
+#connect = pyodbc.connect(connection_string)
 #with connect as connect:
     #connect.execute(""" DROP TABLE trips""")
 

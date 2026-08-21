@@ -1,4 +1,4 @@
-import logging
+
 import azure.functions as func
 from StationInfoFunc import run_station_information
 from StationInfoRecentFunc import run_station_information_recent
@@ -10,34 +10,9 @@ from EventsRecentFunc import run_events_recent
 from EventsHistoricalDailyFunc import run_events_historical_daily
 from EventsHistoricalFunc import run_events_historical
 from GeofenceFunc import run_geofence
-# HTTP Packages
-import pandas as pd
-import mssql_python
-import os
-
-from dotenv import load_dotenv
-
-load_dotenv()
-
-DRIVER = os.getenv("DRIVER")
-SERVER = os.getenv("SERVER")
-INITIAL_CATALOG = os.getenv("INITIAL_CATALOG")
-USER_ID = os.getenv("USER_ID")
-PASSWORD = os.getenv("PASSWORD")
 
 
-connection_string = (
-    #f"DRIVER={DRIVER};"
-    f"SERVER={SERVER};"
-    f"DATABASE={INITIAL_CATALOG};"
-    #"Persist Security Info=False;"
-    f"UID={USER_ID};"
-    f"PWD={PASSWORD};"
-    #"MultipleActiveResultSets=False;"
-    "Encrypt=yes;"
-    #"TrustServerCertificate=no;"
-    #"Connection Timeout=30;"
-)
+
 
 app = func.FunctionApp()
 
@@ -61,11 +36,10 @@ def Station_status_timer_trigger(myTimer: func.TimerRequest):
 def Station_status_recent_timer_trigger(myTimer: func.TimerRequest):
     run_station_status_recent()
 
-# this is the same name as the function above so throws an error
-#@app.timer_trigger(schedule= "0 0 2 * * *", arg_name= "myTimer", run_on_startup=False, use_monitor=False)
+@app.timer_trigger(schedule= "0 0 2 * * *", arg_name= "myTimer", run_on_startup=False, use_monitor=False)
 
-#def Station_status_timer_trigger(myTimer: func.TimerRequest):
-#    run_station_status()    
+def Station_status_timer_trigger(myTimer: func.TimerRequest):
+    run_station_status()    
 
 @app.timer_trigger(schedule="0 0 2 * * *", arg_name="myTimer", run_on_startup=False, use_monitor=False)
 
@@ -83,7 +57,7 @@ def HTTP_Trips_Trigger(req: func.HttpRequest) -> func.HttpResponse:
 def Events_recent_timer_trigger(myTimer: func.TimerRequest):
     run_events_recent()
 
-@app.timer_trigger(schedule="0 0 2 * * *", arg_name="myTimer", run_on_startup=False, use_monitor=False)
+@app.trimer_trigger(schedule="0 0 2 * * *", arg_name="myTimer", run_on_startup=False, use_monitor=False)
 
 def Events_historical_timer_trigger(myTimer: func.TimerRequest):
     run_events_historical_daily()

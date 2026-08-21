@@ -14,7 +14,6 @@ TOKEN_URL = os.getenv("TOKEN_URL")
 STATION_INFO_URL = os.getenv("STATION_INFO_URL")
 API_KEY = os.getenv("API_KEY")
 DATABASE_URL = os.getenv("DATABASE_URL")
-DRIVER = os.getenv("DRIVER")
 SERVER = os.getenv("SERVER")
 INITIAL_CATALOG = os.getenv("INITIAL_CATALOG")
 USER_ID = os.getenv("USER_ID")
@@ -23,18 +22,12 @@ PASSWORD = os.getenv("PASSWORD")
 
 
 connection_string = (
-    #f"DRIVER={DRIVER};"
     f"SERVER={SERVER};"
     f"DATABASE={INITIAL_CATALOG};"
-    #"Persist Security Info=False;"
     f"UID={USER_ID};"
     f"PWD={PASSWORD};"
-    #"MultipleActiveResultSets=False;"
     "Encrypt=yes;"
-    #"TrustServerCertificate=no;"
-    #"Connection Timeout=30;"
 )
-
 
 
 def get_access_token(token_url: str,
@@ -97,7 +90,7 @@ def get_station_information(station_info_url: str,
 
     return df
 
-#connect = mssql_python.connect(connection_string)
+#connect = pyodbc.connect(connection_string)
 #with connect as connect:
     #connect.execute(""" DROP TABLE station_information""")
 
@@ -109,8 +102,6 @@ def run_station_information():
     access_token=token)
     
     print('Data Queried')
-
-    #station_info_df.to_csv('station_info.csv')
 
     connect = mssql_python.connect(connection_string)
 
@@ -145,7 +136,7 @@ def run_station_information():
     cursor = connect.cursor()
 
     insert_sql = """
-    INSERT INTO station_information (
+    INSERT INTO station_information_historic (
         capacity,
         is_virtual_station,
         lat,
@@ -165,3 +156,6 @@ def run_station_information():
     connect.commit()
 
     print('Database created')
+
+
+

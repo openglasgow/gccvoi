@@ -12,7 +12,6 @@ TOKEN_URL = os.getenv("TOKEN_URL")
 STATION_STATUS_URL = os.getenv("STATION_STATUS_URL")
 API_KEY = os.getenv("API_KEY")
 DATABASE_URL = os.getenv("DATABASE_URL")
-DRIVER = os.getenv("DRIVER")
 SERVER = os.getenv("SERVER")
 INITIAL_CATALOG = os.getenv("INITIAL_CATALOG")
 USER_ID = os.getenv("USER_ID")
@@ -21,16 +20,11 @@ PASSWORD = os.getenv("PASSWORD")
 
 
 connection_string = (
-    #f"DRIVER={DRIVER};"
     f"SERVER={SERVER};"
     f"DATABASE={INITIAL_CATALOG};"
-    #"Persist Security Info=False;"
     f"UID={USER_ID};"
     f"PWD={PASSWORD};"
-    #"MultipleActiveResultSets=False;"
     "Encrypt=yes;"
-    #"TrustServerCertificate=no;"
-    #"Connection Timeout=30;"
 )
 
 
@@ -86,9 +80,9 @@ def get_station_status_recent(station_status_url: str,
 
     return df
 
-#connect = mssql_python.connect(connection_string)
+#connect = pyodbc.connect(connection_string)
 #with connect as connect:
-    #connect.execute(""" DROP TABLE station_status""")
+    #connect.execute(""" DROP TABLE station_status_recent""")
 
 def run_station_status_recent():
     token = get_access_token(TOKEN_URL, API_KEY)
@@ -106,14 +100,13 @@ def run_station_status_recent():
         cursor.execute("""
 
         IF EXISTS (
-            SELECT 1 
+            SELECT 1
             FROM sys.tables
             WHERE name = 'station_status_recent'
             )
         BEGIN
-            DROP TABLE station_status_recent
+            DELETE FROM station_status_recent
         END
-        
 
         IF NOT EXISTS (
             SELECT 1 
@@ -145,6 +138,7 @@ def run_station_status_recent():
     cursor = connect.cursor()
 
     insert_sql = """
+    
     INSERT INTO station_status_recent (
         is_installed,
         is_renting,
@@ -168,5 +162,5 @@ def run_station_status_recent():
 
 print("Database Updated")
 
-
+run_station_status_recent()
 

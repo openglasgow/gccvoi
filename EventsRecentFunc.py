@@ -17,25 +17,18 @@ TOKEN_URL = os.getenv("TOKEN_URL")
 EVENTS_RECENT_BASE_URL = os.getenv("EVENTS_RECENT_BASE_URL")
 API_KEY = os.getenv("API_KEY")
 DATABASE_URL = os.getenv("DATABASE_URL")
-DRIVER = os.getenv("DRIVER")
 SERVER = os.getenv("SERVER")
 INITIAL_CATALOG = os.getenv("INITIAL_CATALOG")
 USER_ID = os.getenv("USER_ID")
 PASSWORD = os.getenv("PASSWORD")
 
 
-
 connection_string = (
-    #f"DRIVER={DRIVER};"
     f"SERVER={SERVER};"
     f"DATABASE={INITIAL_CATALOG};"
-    #"Persist Security Info=False;"
     f"UID={USER_ID};"
     f"PWD={PASSWORD};"
-    #"MultipleActiveResultSets=False;"
     "Encrypt=yes;"
-    #"TrustServerCertificate=no;"
-    #"Connection Timeout=30;"
 )
 
 def get_access_token(token_url: str,
@@ -103,8 +96,6 @@ def get_events_recent(events_recent_url: str,
 
     return events_recent_df
 
-''' this is running at startup every time and throwing an error
-
 end_time = datetime.now().replace(minute=0, second=0, microsecond=0)
 start_time = end_time + timedelta(hours=-1)
 
@@ -115,11 +106,6 @@ EVENTS_RECENT_URL = (
     f"{EVENTS_RECENT_BASE_URL}"
     f"?start_time={start_time}&end_time={end_time}"
 )
-
-connect = mssql_python.connect(connection_string)
-with connect as connect:
-    connect.execute(""" DROP TABLE events_recent""")
-'''
 
 
 def run_events_recent():
