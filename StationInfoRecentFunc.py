@@ -167,5 +167,3 @@ def run_station_information_recent():
 
     print('Database created')
 
-run_station_information_recent()
-
